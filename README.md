@@ -1,6 +1,8 @@
-## Dhwani
+## Dhwani - Audio Story maker for Indian languages 
 
-### Immersive AudioBook Generator
+- Inspired by Meta's [StoryMaker demo](https://audiobox.metademolab.com/storymaker/demo) based on AudioBox 
+
+- Use Indic-parler-tts model to create immersive Audiobook for stories in the Indian subcontinent
 
 - Dhwani is a self-hosted platform designed to create, manage, and enhance audiobooks. 
 
