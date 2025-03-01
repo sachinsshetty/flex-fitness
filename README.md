@@ -9,6 +9,15 @@
 
 - [Voice Demo](https://huggingface.co/spaces/gaganyatri/dhwani)
 
+
+## Target Solution
+
+| Answer Engine                                  | Voice Translation                          |
+|-----------------------------------------------|---------------------------------------------|
+| ![Answer Engine](docs/workflow/kannada-answer-engine.drawio.png "Engine") | ![Voice Translation](docs/workflow/voice-translation.drawio.png "Voice Translation") |
+
+<!-- 
+
 - TTS - Text to Speech
 ```
 curl -X 'POST' \
@@ -29,7 +38,7 @@ curl -X 'POST' \
 
 
 - Translate - Kannada to Hindi
-
+```
 curl -X 'POST' \
   'https://gaganyatri-translate-indic-server-cpu.hf.space/translate?src_lang=kan_Knda&tgt_lang=eng_Latn&device_type=cpu' \
   -H 'accept: application/json' \
@@ -41,5 +50,6 @@ curl -X 'POST' \
   "src_lang": "kan_Knda",
   "tgt_lang": "eng_Latn"
 }'
+```
 
-
+-->
