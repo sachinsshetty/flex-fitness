@@ -3,7 +3,8 @@ import os
 import requests
 import json
 import logging
-from PyPDF2 import PdfReader
+from pydub import AudioSegment
+from pydub.playback import play
 from mistralai import Mistral
 
 # Set up logging
@@ -56,17 +57,19 @@ def get_endpoint(use_gpu, use_localhost, service_type):
     logging.info(f"Endpoint for {service_type}: {base_url}")
     return base_url
 
-def extract_text_from_pdf(pdf_path):
-    logging.info(f"Extracting text from PDF: {pdf_path}")
+def transcribe_audio(audio_path, use_gpu, use_localhost):
+    logging.info(f"Transcribing audio from {audio_path}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
+    base_url = get_endpoint(use_gpu, use_localhost, "asr")
+    url = f'{base_url}/transcribe/?language=kannada'
+    files = {'file': open(audio_path, 'rb')}
     try:
-        reader = PdfReader(pdf_path)
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text() + "\n"
-        logging.info(f"Text extraction successful: {text}")
-        return text
-    except Exception as e:
-        logging.error(f"Text extraction failed: {e}")
+        response = requests.post(url, files=files)
+        response.raise_for_status()
+        transcription = response.json()
+        logging.info(f"Transcription successful: {transcription}")
+        return transcription.get('text', '')
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Transcription failed: {e}")
         return ""
 
 def translate_text(transcription, src_lang, tgt_lang, use_gpu=False, use_localhost=False):
@@ -131,7 +134,7 @@ def get_audio(input_text, voice_description="Anu speaks with a high pitch at a n
 
 def send_to_mistral(translated_text):
     api_key = os.environ["MISTRAL_API_KEY"]
-    model = "mistral-large-latest"
+    model = "mistral-saba-latest"
     client = Mistral(api_key=api_key)
     chat_response = client.chat.complete(
         model=model,
@@ -145,9 +148,9 @@ def send_to_mistral(translated_text):
     return chat_response.choices[0].message.content
 
 # Create the Gradio interface
-with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
-    gr.Markdown("# PDF to Text Translation")
-    gr.Markdown("Upload a PDF file and translate its text to your required Indian Language")
+with gr.Blocks(title="Dhwani - Voice to Text Translation") as demo:
+    gr.Markdown("# Voice to Text Translation")
+    gr.Markdown("Record your voice or upload a WAV file and Translate it to your required Indian Language")
 
     translate_src_language = gr.Dropdown(
         choices=list(language_mapping.keys()),
@@ -160,8 +163,10 @@ with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
         label="Target Language",
         value="English"
     )
-    pdf_input = gr.File(type="filepath", file_types=[".pdf"], label="Upload PDF file")
-    transcription_output = gr.Textbox(label="Extracted Text", interactive=False)
+    audio_input = gr.Microphone(type="filepath", label="Record your voice")
+    audio_upload = gr.File(type="filepath", file_types=[".wav"], label="Upload WAV file")
+    audio_output = gr.Audio(type="filepath", label="Playback", interactive=False)
+    transcription_output = gr.Textbox(label="Transcription Result", interactive=False)
     translation_output = gr.Textbox(label="Translated Text", interactive=False)
     mistral_output = gr.Textbox(label="Mistral API Response", interactive=False)
     tts_output = gr.Audio(label="Generated Audio", interactive=False)
@@ -173,6 +178,7 @@ with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
     enable_tts_checkbox = gr.Checkbox(label="Enable Text-to-Speech", value=False, interactive=False)
     use_gpu_checkbox = gr.Checkbox(label="Use GPU", value=False, interactive=False)
     use_localhost_checkbox = gr.Checkbox(label="Use Localhost", value=False, interactive=False)
+    #resubmit_button = gr.Button(value="Resubmit Translation")
 
     def on_transcription_complete(transcription, src_lang, tgt_lang, use_gpu, use_localhost):
         src_lang_id = language_mapping[src_lang]
@@ -182,9 +188,9 @@ with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
         translated_text = translation['translations'][0]
         return translated_text
 
-    def process_pdf(pdf_path, use_gpu, use_localhost):
-        logging.info(f"Processing PDF from {pdf_path}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
-        transcription = extract_text_from_pdf(pdf_path)
+    def process_audio(audio_path, use_gpu, use_localhost):
+        logging.info(f"Processing audio from {audio_path}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
+        transcription = transcribe_audio(audio_path, use_gpu, use_localhost)
         return transcription
 
     def reload_endpoint_info(use_gpu, use_localhost):
@@ -200,9 +206,15 @@ with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
             audio_file_path = None
         return mistral_response, audio_file_path
 
-    pdf_input.upload(
-        fn=process_pdf,
-        inputs=[pdf_input, use_gpu_checkbox, use_localhost_checkbox],
+    audio_input.stop_recording(
+        fn=process_audio,
+        inputs=[audio_input, use_gpu_checkbox, use_localhost_checkbox],
+        outputs=transcription_output
+    )
+
+    audio_upload.upload(
+        fn=process_audio,
+        inputs=[audio_upload, use_gpu_checkbox, use_localhost_checkbox],
         outputs=transcription_output
     )
 
@@ -223,5 +235,12 @@ with gr.Blocks(title="Dhwani - PDF to Text Translation") as demo:
         inputs=[use_gpu_checkbox, use_localhost_checkbox]
     )
 
+'''
+    resubmit_button.click(
+        fn=on_transcription_complete,
+        inputs=[transcription_output, translate_src_language, translate_tgt_language, use_gpu_checkbox, use_localhost_checkbox],
+        outputs=translation_output
+    )
+'''
 # Launch the interface
 demo.launch()
