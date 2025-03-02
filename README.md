@@ -3,11 +3,16 @@
 - Dhwani is a self-hosted platform designed to provide Voice mode interaction for Kannada and Indian languages.
 
 
-- Researrch Goal - 
+- Research Goal -
 
-- Project Report and Funding request for Dhwani
+  - The primary research goal of Project Dhwani is to measure and improve the Time to First Token Generation (TTFTG) for model architectures in Automatic Speech Recognition (ASR), Translation, and Text-to-Speech (TTS) systems. 
+  - By leveraging open-source Large Language Models (LLMs) and tools provided by AI4BHARAT, we aim to develop and enhance a Kannada voice model that meets industry standards set by Alexa, Siri, and Google. 
+  - The project will focus on creating robust voice solutions for Indian languages, with a specific emphasis on Kannada.
+
+
+- Project Report 
   - [WebLink](https://github.com/sachinsshetty/onwards/blob/main/idea/2025/2025-02-24-gpu-access.md) 
-  - [Document-WIP](https://docs.google.com/document/d/1idZAzXc65e5QtwTO4vW8gImqnKets_4N4OHLZOCZ9Q0/edit?tab=t.0) 
+  - [Document](https://docs.google.com/document/d/1idZAzXc65e5QtwTO4vW8gImqnKets_4N4OHLZOCZ9Q0/edit?tab=t.0) 
 
 
   ### Models and Tools
@@ -42,6 +47,7 @@ The project will utilize the following open-source tools:
 | Text Query                   | Allows querying text data for specific information.                          | [Link](https://huggingface.co/spaces/gaganyatri/dhwani_text_query)  | LLM                 | [Link](ux/text_query/app.py)          |
 
 
-- This platform leverages various tools and models to parse, transcribe, and improve conversation ultimately providing high-quality audio interactions 
+- For collaborations
+  - Join the discord group - [invite link](https://discord.gg/WZMCerEZ2P)
 
-- An experiment to build a production grade inference pipeline 
+- For business queries, Email : info (at) slabstech (dot) com
