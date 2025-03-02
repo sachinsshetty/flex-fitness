@@ -1,4 +1,4 @@
-# Dhwani - Voice Mode For Kannada
+# Dhwani - Voice AI For Kannada
 
 ## Overview
 
