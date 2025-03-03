@@ -6,11 +6,19 @@ import logging
 from pydub import AudioSegment
 from pydub.playback import play
 from mistralai import Mistral
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(filename='execution.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Load configuration from config.json
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
 
 # Mapping of user-friendly language names to language IDs
 language_mapping = {
@@ -46,13 +54,9 @@ def get_endpoint(use_gpu, use_localhost, service_type):
     logging.info(f"Getting endpoint for service: {service_type}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
     device_type_ep = "" if use_gpu else "-cpu"
     if use_localhost:
-        port_mapping = {
-            "asr": 10860,
-            "tts": 9860  # Added TTS service port
-        }
-        base_url = f'http://localhost:{port_mapping[service_type]}'
+        base_url = f'http://localhost:{config["endpoints"][service_type]["localhost"]}'
     else:
-        base_url = f'https://gaganyatri-{service_type}-indic-server{device_type_ep}.hf.space'
+        base_url = f'{config["endpoints"][service_type]["remote"]}{device_type_ep}'
     logging.info(f"Endpoint for {service_type}: {base_url}")
     return base_url
 
@@ -71,10 +75,10 @@ def transcribe_audio(audio_path, use_gpu, use_localhost):
         logging.error(f"Transcription failed: {e}")
         return ""
 
-def get_audio(input_text, voice_description="Anu speaks with a high pitch at a normal pace in a clear, close-sounding environment. Her neutral tone is captured with excellent audio quality."):
+def get_audio(input_text, voice_description=config["voice_description"]):
     try:
         # Define the API endpoint and headers
-        url = "https://gaganyatri-tts-indic-server.hf.space/v1/audio/speech"  # Note: Added http://
+        url = f'{config["endpoints"]["tts"]["remote"]}/v1/audio/speech'
         headers = {
             "accept": "application/json",
             "Content-Type": "application/json"
@@ -109,12 +113,19 @@ def get_audio(input_text, voice_description="Anu speaks with a high pitch at a n
         return f"Error: {e}"
 
 def send_to_mistral(transcription):
-    api_key = os.environ["MISTRAL_API_KEY"]
+    api_key = os.getenv("MISTRAL_API_KEY")
     model = "mistral-saba-latest"
     client = Mistral(api_key=api_key)
+
+    system_prompt = "You are a helpful assistant. Provide a concise response in one sentence maximum to the user's query."
+
     chat_response = client.chat.complete(
         model=model,
         messages=[
+            {
+                "role": "system",
+                "content": system_prompt,
+            },
             {
                 "role": "user",
                 "content": transcription,
@@ -124,34 +135,28 @@ def send_to_mistral(transcription):
     return chat_response.choices[0].message.content
 
 # Create the Gradio interface
-with gr.Blocks(title="Dhwani - Voice to Text Translation") as demo:
-    gr.Markdown("# Voice to Text Translation")
-    gr.Markdown("Record your voice or upload a WAV file and Translate it to your required Indian Language")
+with gr.Blocks(title="Dhwani - Voice AI for Kannada /ಕನ್ನಡಕ್ಕಾಗಿ ಧ್ವನಿ AI ") as demo:
+    gr.Markdown("# Voice AI for Kannada")
+    gr.Markdown("Record your voice and get your answer in Kannada/ ನಿಮ್ಮ ಧ್ವನಿಯನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ಉತ್ತರವನ್ನು ಕನ್ನಡದಲ್ಲಿ ಪಡೆಯಿರಿ")
+    gr.Markdown("Click on Recording button, to ask your question / ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಕೇಳಲು ರೆಕಾರ್ಡಿಂಗ್ ಬಟನ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ")
+    gr.Markdown("Click on stop recording button, to submit your question/ ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಸಲ್ಲಿಸಲು ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸು ಬಟನ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ")
 
-    translate_src_language = gr.Dropdown(
-        choices=list(language_mapping.keys()),
-        label="Source Language - Fixed",
-        value="Kannada",
-        interactive=False
-    )
     audio_input = gr.Microphone(type="filepath", label="Record your voice")
-    audio_upload = gr.File(type="filepath", file_types=[".wav"], label="Upload WAV file")
     audio_output = gr.Audio(type="filepath", label="Playback", interactive=False)
     transcription_output = gr.Textbox(label="Transcription Result", interactive=False)
-    mistral_output = gr.Textbox(label="Mistral API Response", interactive=False)
+    mistral_output = gr.Textbox(label="Dhwani answer/ ಉತ್ತರ", interactive=False)
     tts_output = gr.Audio(label="Generated Audio", interactive=False)
-    voice_description = gr.Textbox(
-        label="Voice Description",
-        placeholder="A female speaker delivers a slightly expressive and animated speech with a moderate speed and pitch. The recording is of very high quality, with the speakers voice sounding clear and very close up",
-        lines=2,
-    )
-    enable_tts_checkbox = gr.Checkbox(label="Enable Text-to-Speech", value=False, interactive=False)
-    use_gpu_checkbox = gr.Checkbox(label="Use GPU", value=False, interactive=False)
-    use_localhost_checkbox = gr.Checkbox(label="Use Localhost", value=False, interactive=False)
-    #resubmit_button = gr.Button(value="Resubmit Translation")
 
-    def on_transcription_complete(transcription, voice_description, enable_tts, use_gpu, use_localhost):
-        logging.info(f"Transcription complete: {transcription}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
+    enable_tts_checkbox = gr.Checkbox(label="Enable Text-to-Speech", value=True, interactive=False, visible=False)
+    use_gpu_checkbox = gr.Checkbox(label="Use GPU", value=True, interactive=True, visible=False)
+    use_localhost_checkbox = gr.Checkbox(label="Use Localhost", value=False, interactive=False, visible=False)
+
+    def process_audio(audio_path, use_gpu, use_localhost):
+        logging.info(f"Processing audio from {audio_path}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
+        transcription = transcribe_audio(audio_path, use_gpu, use_localhost)
+        return transcription
+
+    def on_transcription_complete(transcription, voice_description, enable_tts):
         mistral_response = send_to_mistral(transcription)
         if enable_tts:
             audio_file_path = get_audio(mistral_response, voice_description)
@@ -159,45 +164,19 @@ with gr.Blocks(title="Dhwani - Voice to Text Translation") as demo:
             audio_file_path = None
         return mistral_response, audio_file_path
 
-    def process_audio(audio_path, use_gpu, use_localhost):
-        logging.info(f"Processing audio from {audio_path}, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
-        transcription = transcribe_audio(audio_path, use_gpu, use_localhost)
-        return transcription
-
-    def reload_endpoint_info(use_gpu, use_localhost):
-        logging.info(f"Reloading endpoint info, use_gpu: {use_gpu}, use_localhost: {use_localhost}")
-        # This function can be used to reload or reconfigure endpoints if needed
-        return
-
     audio_input.stop_recording(
         fn=process_audio,
         inputs=[audio_input, use_gpu_checkbox, use_localhost_checkbox],
         outputs=transcription_output
     )
 
-    audio_upload.upload(
-        fn=process_audio,
-        inputs=[audio_upload, use_gpu_checkbox, use_localhost_checkbox],
-        outputs=transcription_output
-    )
+    voice_description = "Anu speaks with a high pitch at a normal pace in a clear, close-sounding environment. Her neutral tone is captured with excellent audio quality."
 
     transcription_output.change(
         fn=on_transcription_complete,
-        inputs=[transcription_output, voice_description, enable_tts_checkbox, use_gpu_checkbox, use_localhost_checkbox],
+        inputs=[transcription_output, voice_description, enable_tts_checkbox],
         outputs=[mistral_output, tts_output]
     )
 
-    translate_src_language.change(
-        fn=reload_endpoint_info,
-        inputs=[use_gpu_checkbox, use_localhost_checkbox]
-    )
-
-'''
-    resubmit_button.click(
-        fn=on_transcription_complete,
-        inputs=[transcription_output, translate_src_language, translate_tgt_language, use_gpu_checkbox, use_localhost_checkbox],
-        outputs=translation_output
-    )
-'''
 # Launch the interface
 demo.launch()
