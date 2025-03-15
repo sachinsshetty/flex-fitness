@@ -101,20 +101,19 @@ export default function Hero() {
             useFlexGap
             sx={{ pt: 2, width: { xs: '100%', sm: '350px' } }}
           >
-            <div style={{ display: 'none' }}>
+            <div >
           <Grid container spacing={2}>
             <Grid size={{ xs: 12 }} >
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/kqZZZjbeNVk?rel=0"
+              src="https://www.youtube.com/embed/VqFdZAkR_a0?rel=0"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="Watch the video"
             ></iframe>
             </Grid>
-           
           </Grid>
           </div>
             <div style={{ display: 'none' }}>
