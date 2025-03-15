@@ -15,7 +15,7 @@ function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <Link color="text.secondary" href="https://slabstech.com/dhwani">
+      <Link color="text.secondary" href="https://dhwani-ai.com">
         Dhwani
       </Link>
       &nbsp;
