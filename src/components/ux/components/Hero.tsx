@@ -10,6 +10,8 @@ import Grid from '@mui/material/Grid2';
 import { visuallyHidden } from '@mui/utils';
 import { styled } from '@mui/material/styles';
 
+import Divider from '@mui/material/Divider';
+
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
   width: '100%',
@@ -93,8 +95,11 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
+            Imagine chatting with your phone in Kannada—Dhwani makes it happen!
+          
           </Typography>
-          Imagine chatting with your phone in Kannada—Dhwani makes it happen!
+
+          
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={1}
@@ -116,6 +121,9 @@ export default function Hero() {
             </Grid>
           </Grid>
           </div>
+
+          <Divider />
+
             <div style={{ display: 'none' }}>
             <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
               Email
@@ -161,6 +169,50 @@ export default function Hero() {
           </div>
           
         </Stack>
+
+
+        <Stack
+          spacing={2}
+          useFlexGap
+          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
+        >
+
+        <Divider />
+
+        <Divider />
+        <Divider />
+
+<Typography
+  sx={{
+    textAlign: 'center',
+    color: 'text.secondary',
+    width: { sm: '100%', md: '80%' },
+  }}
+>
+   Now Support 5 languages on Android. 
+   Email Us - TO get access to early user program
+</Typography>
+
+<div >
+<Grid container spacing={2}>
+  <Grid size={{ xs: 12 }} >
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/N2E3puRjs-w?rel=0"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    title="Watch the video"
+  ></iframe>
+  </Grid>
+</Grid>
+</div>
+
+</Stack>
+
+
+
         <div style={{ display: 'none' }}>
         <StyledBox id="image" />
         </div>
