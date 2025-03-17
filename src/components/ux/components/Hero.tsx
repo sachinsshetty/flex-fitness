@@ -210,6 +210,48 @@ export default function Hero() {
 </div>
 
 </Stack>
+<Stack
+          spacing={2}
+          useFlexGap
+          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
+        >
+
+        <Divider />
+
+        <Divider />
+        <Divider />
+
+<Typography
+  sx={{
+    textAlign: 'center',
+    color: 'text.secondary',
+    width: { sm: '100%', md: '80%' },
+  }}
+>
+Introduction to Dhwani
+</Typography>
+
+<div >
+<Grid container spacing={2}>
+  <Grid size={{ xs: 12 }} >
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/kqZZZjbeNVk?rel=0"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    title="Watch the video"
+  ></iframe>
+  </Grid>
+</Grid>
+</div>
+
+</Stack>
+
+
+
+
 
 
 
