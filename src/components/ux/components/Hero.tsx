@@ -199,7 +199,7 @@ export default function Hero() {
   <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/N2E3puRjs-w?rel=0"
+    src="https://www.youtube.com/embed/31jvakEM_TM?rel=0"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
