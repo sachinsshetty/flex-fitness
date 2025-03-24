@@ -227,7 +227,8 @@ export default function Hero() {
     width: { sm: '100%', md: '80%' },
   }}
 >
-Introduction to Dhwani
+
+How to use - Dhwani AI - Workshop - 20th March, 2025
 </Typography>
 
 <div >
@@ -236,7 +237,7 @@ Introduction to Dhwani
   <iframe
     width="560"
     height="315"
-    src="https://www.youtube.com/embed/kqZZZjbeNVk?rel=0"
+    src="https://www.youtube.com/embed/f5JkJLQJFGA?rel=0"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
