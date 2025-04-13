@@ -75,9 +75,46 @@ The project utilizes the following open-source tools:
 -->
 
 --
+<details> 
 
-# Dhwani: Empowering 50M German Speakers with Voice Technology
 
+
+<summary>
+
+
+### Dhwani: Empowering 50M Kannada Speakers with Voice Technology
+</summary>
+
+Dialect barriers: Voice assistants (e.g., Siri, Alexa) struggle with German dialects, excluding speakers like Anna, a visually impaired grandmother in Munich.
+
+
+## The Problem
+
+Picture Shyamala, a Kannada-speaking farmer from Karnataka, unable to use voice apps—they don’t understand her language. For 50 million Kannada speakers, technology feels out of reach, excluding them from digital access and opportunities.
+
+Dhwani changes that. Our open-source voice assistant speaks Kannada fluently, helping people like Shyamala with everyday tasks—asking questions, translating, or describing images—all in their native tongue. It’s private, works offline, and runs on affordable devices, designed with Karnataka’s heart in mind.
+
+We’re live on the Play Store with 10,000+ downloads and a growing community. Dhwani’s built to scale, ready to serve 1 billion voices across India’s 22 languages in a market craving local solutions.
+
+No one else offers Kannada voice tech—Dhwani’s unique, community-driven, and culturally true.
+
+We’re seeking €100,000 to reach 100,000 users and refine our tech, partnering to include millions in the digital world.
+
+Let’s give 50 million voices a chance to be heard. Join us.
+
+
+</details> 
+
+
+<details> 
+
+
+
+<summary>
+
+### Dhwani: Empowering 50M German Speakers with Voice Technology
+
+</summary>
 ## The Problem
 Imagine Anna, a visually impaired grandmother in Munich, unable to use voice assistants like Siri or Alexa because they don’t understand her German dialect or respect her privacy. Over 50 million German speakers face this reality: excluded from digital access due to English-centric tech, cloud-based data risks, and limited accessibility for non-English speakers and people with disabilities.
 
@@ -133,6 +170,6 @@ Unlike Siri or Alexa, Dhwani is:
 ## Call to Action
 Join us to bring Dhwani to Anna and millions of German speakers. Let’s make voice technology inclusive, private, and German-first.
 
-**Contact**: Sachin Shetty | sachin@slabstech.com | +4917658013625
+</details> 
 
 ---
