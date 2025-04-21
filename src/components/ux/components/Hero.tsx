@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import { visuallyHidden } from '@mui/utils';
 import { styled } from '@mui/material/styles';
-import SpeechDemo from './speech/SpeechDemo';
 
 import Divider from '@mui/material/Divider';
 
