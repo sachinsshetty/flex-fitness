@@ -4,6 +4,9 @@
 
 Dhwani is a self-hosted GenAI platform designed to provide voice mode interaction for Kannada and other Indian languages. 
 
+
+https://dhwani-ai.com
+
 ## Research Goals
 
 - Measure and improve the Time to First Token Generation (TTFTG) for model architectures in ASR, Translation, and TTS systems.
