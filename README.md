@@ -5,7 +5,10 @@
 Dwani is a self-hosted GenAI platform designed to provide voice mode interaction for Kannada and other Indian languages. 
 
 
-https://dwani-ai.com
+Website -> [dwani.ai](https://dwani.ai)
+
+[Download App on Google Play](
+https://play.google.com/store/apps/details?id=com.slabstech.dhwani.voiceai&pcampaignid=web_share)
 
 ## Research Goals
 
@@ -17,14 +20,10 @@ https://dwani-ai.com
 ## Project Video
     
 - Dwani - Android App Demo
-[![Watch the video](https://img.youtube.com/vi/VqFdZAkR_a0/hqdefault.jpg)](https://youtube.com/shorts/VqFdZAkR_a0)
+[![Watch the video](https://img.youtube.com/vi/TbplM-lWSL4/hqdefault.jpg)](https://youtube.com/shorts/TbplM-lWSL4)
 
 - Dwani - Intoduction to Project
 [![Watch the video](https://img.youtube.com/vi/kqZZZjbeNVk/hqdefault.jpg)](https://youtu.be/kqZZZjbeNVk)
-
-  
-
-- [Pitch Deck](https://docs.google.com/presentation/d/e/2PACX-1vQxLtbL_kXOqHgAHqcFTg8hDP7Dw3lt64U336J0f9CgYQPKDJVqONd3F4Js1XiCvk_LDpbijshQ5mM6/pub?start=false&loop=false&delayms=3000)
 
 
 ## Models and Tools
@@ -65,7 +64,7 @@ The project utilizes the following open-source tools:
 - For any questions or issues, please open an issue on GitHub or contact us via email.
 - For collaborations
   - Join the discord group - [invite link](https://discord.gg/WZMCerEZ2P) 
-- For business queries, Email : info (at) slabstech (dot) com
+- For business queries, Email : sachin (at) dwani (dot) ai
 
 
 <!-- 
