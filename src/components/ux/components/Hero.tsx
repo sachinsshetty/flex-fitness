@@ -74,7 +74,7 @@ export default function Hero() {
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Dwani
+            Flex Fitness
           </Typography>
 
           <Typography
@@ -84,7 +84,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Your Kannada-Speaking Voice Buddy
+            Stronger, Faster, Better
           </Typography>
           <Typography
             sx={{
@@ -93,7 +93,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Imagine chatting with your phone in Kannada—Dwani makes it happen!
+            Improve your longevity with Flex Fitness
           </Typography>
 
           <Stack
@@ -130,157 +130,6 @@ export default function Hero() {
 
           <Divider />
 
-          <div style={{ display: 'none' }}>
-            <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
-              Email
-            </InputLabel>
-            <TextField
-              id="email-hero"
-              hiddenLabel
-              size="small"
-              variant="outlined"
-              aria-label="Enter your email address"
-              placeholder="Your email address"
-              fullWidth
-              slotProps={{
-                htmlInput: {
-                  autoComplete: 'off',
-                  'aria-label': 'Enter your email address',
-                },
-              }}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              sx={{ minWidth: 'fit-content' }}
-            >
-              Start now
-            </Button>
-          </div>
-          
-          <div style={{ display: 'none' }}>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{ textAlign: 'center' }}
-            >
-              By clicking "Start now" you agree to our 
-              <Link href="#" color="primary">
-                Terms & Conditions
-              </Link>
-              .
-            </Typography>
-          </div>
-        </Stack>
-
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
-        >
-          <Divider />
-          <Divider />
-          <Divider />
-
-          <Typography
-            sx={{
-              textAlign: 'center',
-              color: 'text.secondary',
-              width: { sm: '100%', md: '80%' },
-            }}
-          >
-            Now Support 5 languages on Android. 
-            Email Us - TO get access to early user program
-          </Typography>
-
-          <div>
-            <Grid container spacing={2}>
-              <Grid size={{ xs: 12 }}>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/31jvakEM_TM?rel=0"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Watch the video"
-                ></iframe>
-              </Grid>
-            </Grid>
-          </div>
-        </Stack>
-
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
-        >
-          <Divider />
-          <Divider />
-          <Divider />
-
-          <Typography
-            sx={{
-              textAlign: 'center',
-              color: 'text.secondary',
-              width: { sm: '100%', md: '80%' },
-            }}
-          >
-            How to use - Dwani AI - Workshop - 20th March, 2025
-          </Typography>
-
-          <div>
-            <Grid container spacing={2}>
-              <Grid size={{ xs: 12 }}>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/f5JkJLQJFGA?rel=0"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Watch the video"
-                ></iframe>
-              </Grid>
-            </Grid>
-          </div>
-        </Stack>
-
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
-        >
-          <Divider />
-          <Divider />
-          <Divider />
-
-          <Typography
-            sx={{
-              textAlign: 'center',
-              color: 'text.secondary',
-              width: { sm: '100%', md: '80%' },
-            }}
-          >
-            Access to Dwani AI - API
-          </Typography>
-
-          <div>
-            <Grid container spacing={2}>
-              <Grid size={{ xs: 12 }}>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/RLIhG1bt8gw?rel=0"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Watch the video"
-                ></iframe>
-              </Grid>
-            </Grid>
-          </div>
         </Stack>
 
         <div style={{ display: 'none' }}>
