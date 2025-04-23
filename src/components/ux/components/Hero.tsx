@@ -74,7 +74,7 @@ export default function Hero() {
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Dhwani
+            Dwani
           </Typography>
 
           <Typography
@@ -93,7 +93,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Imagine chatting with your phone in Kannada—Dhwani makes it happen!
+            Imagine chatting with your phone in Kannada—Dwani makes it happen!
           </Typography>
 
           <Stack
@@ -227,7 +227,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            How to use - Dhwani AI - Workshop - 20th March, 2025
+            How to use - Dwani AI - Workshop - 20th March, 2025
           </Typography>
 
           <div>
@@ -263,7 +263,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Access to Dhwani AI - API
+            Access to Dwani AI - API
           </Typography>
 
           <div>

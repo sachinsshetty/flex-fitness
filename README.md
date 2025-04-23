@@ -1,11 +1,11 @@
-# Dhwani - Your Kannada Speaking Voice Buddy
+# Dwani - Your Kannada Speaking Voice Buddy
 
 ## Overview
 
-Dhwani is a self-hosted GenAI platform designed to provide voice mode interaction for Kannada and other Indian languages. 
+Dwani is a self-hosted GenAI platform designed to provide voice mode interaction for Kannada and other Indian languages. 
 
 
-https://dhwani-ai.com
+https://dwani-ai.com
 
 ## Research Goals
 
@@ -16,10 +16,10 @@ https://dhwani-ai.com
 
 ## Project Video
     
-- Dhwani - Android App Demo
+- Dwani - Android App Demo
 [![Watch the video](https://img.youtube.com/vi/VqFdZAkR_a0/hqdefault.jpg)](https://youtube.com/shorts/VqFdZAkR_a0)
 
-- Dhwani - Intoduction to Project
+- Dwani - Intoduction to Project
 [![Watch the video](https://img.youtube.com/vi/kqZZZjbeNVk/hqdefault.jpg)](https://youtu.be/kqZZZjbeNVk)
 
   
@@ -37,8 +37,8 @@ The project utilizes the following open-source tools:
 | Text to Speech : TTS                  | [TTS Indic Server](https://github.com/slabstech/tts-indic-server)  | 
 | Translation                           | [Indic Translate Server](https://github.com/slabstech/indic-translate-server) | 
 | Document Parser                       | [Indic Document Server](https://github.com/slabstech/docs-indic-server) |
-| Dhwani Server | [Dhwani Server](https://github.com/slabstech/dhwani-server) | 
-| Dhwani Android | [Android](https://github.com/slabstech/dhwani-android) |
+| Dwani Server | [Dwani Server](https://github.com/slabstech/dhwani-server) | 
+| Dwani Android | [Android](https://github.com/slabstech/dhwani-android) |
 | Large Language Model                  | [LLM Indic Server](https://github.com/slabstech/llm-indic-server_cpu) | 
 
 
@@ -85,7 +85,7 @@ The project utilizes the following open-source tools:
 <summary>
 
 
-### Dhwani: Empowering 50M Kannada Speakers with Voice Technology
+### Dwani: Empowering 50M Kannada Speakers with Voice Technology
 </summary>
 
 Dialect barriers: Voice assistants (e.g., Siri, Alexa) struggle with German dialects, excluding speakers like Anna, a visually impaired grandmother in Munich.
@@ -95,11 +95,11 @@ Dialect barriers: Voice assistants (e.g., Siri, Alexa) struggle with German dial
 
 Picture Shyamala, a Kannada-speaking farmer from Karnataka, unable to use voice apps—they don’t understand her language. For 50 million Kannada speakers, technology feels out of reach, excluding them from digital access and opportunities.
 
-Dhwani changes that. Our open-source voice assistant speaks Kannada fluently, helping people like Shyamala with everyday tasks—asking questions, translating, or describing images—all in their native tongue. It’s private, works offline, and runs on affordable devices, designed with Karnataka’s heart in mind.
+Dwani changes that. Our open-source voice assistant speaks Kannada fluently, helping people like Shyamala with everyday tasks—asking questions, translating, or describing images—all in their native tongue. It’s private, works offline, and runs on affordable devices, designed with Karnataka’s heart in mind.
 
-We’re live on the Play Store with 10,000+ downloads and a growing community. Dhwani’s built to scale, ready to serve 1 billion voices across India’s 22 languages in a market craving local solutions.
+We’re live on the Play Store with 10,000+ downloads and a growing community. Dwani’s built to scale, ready to serve 1 billion voices across India’s 22 languages in a market craving local solutions.
 
-No one else offers Kannada voice tech—Dhwani’s unique, community-driven, and culturally true.
+No one else offers Kannada voice tech—Dwani’s unique, community-driven, and culturally true.
 
 We’re seeking €100,000 to reach 100,000 users and refine our tech, partnering to include millions in the digital world.
 
@@ -115,22 +115,22 @@ Let’s give 50 million voices a chance to be heard. Join us.
 
 <summary>
 
-### Dhwani: Empowering 50M German Speakers with Voice Technology
+### Dwani: Empowering 50M German Speakers with Voice Technology
 
 </summary>
 ## The Problem
 Imagine Anna, a visually impaired grandmother in Munich, unable to use voice assistants like Siri or Alexa because they don’t understand her German dialect or respect her privacy. Over 50 million German speakers face this reality: excluded from digital access due to English-centric tech, cloud-based data risks, and limited accessibility for non-English speakers and people with disabilities.
 
 ## The Vision
-Dhwani bridges this gap, empowering 50M+ German speakers across Germany, Austria, and Switzerland with voice technology that’s accessible, private, and tailored to their language and culture. From Anna to students in Berlin, we envision a world where everyone’s voice is heard.
+Dwani bridges this gap, empowering 50M+ German speakers across Germany, Austria, and Switzerland with voice technology that’s accessible, private, and tailored to their language and culture. From Anna to students in Berlin, we envision a world where everyone’s voice is heard.
 
 ## The Solution
-Dhwani is a German-speaking voice assistant that’s open-source, privacy-first, and community-driven. Key features include:
+Dwani is a German-speaking voice assistant that’s open-source, privacy-first, and community-driven. Key features include:
 - Fluent German voice queries (e.g., “Was ist das Wetter in Berlin?”).
 - Real-time translation and German document summaries.
 - On-premise setup for data security.
 
-Built with AI (ASR, TTS, LLMs), Dhwani ensures natural, dialect-aware interactions.
+Built with AI (ASR, TTS, LLMs), Dwani ensures natural, dialect-aware interactions.
 
 ## Market Opportunity
 - **Immediate**: 50M+ German speakers in Germany (80M population), Austria (9M), Switzerland (5M).
@@ -138,7 +138,7 @@ Built with AI (ASR, TTS, LLMs), Dhwani ensures natural, dialect-aware interactio
 - **Trend**: Growing demand for regional, privacy-focused tech solutions.
 
 ## Competitive Advantage
-Unlike Siri or Alexa, Dhwani is:
+Unlike Siri or Alexa, Dwani is:
 - **German-first**: Tailored for dialects and culture.
 - **Privacy-focused**: On-premise for secure, offline use.
 - **Open-source**: Transparent and community-driven.
@@ -150,7 +150,7 @@ Unlike Siri or Alexa, Dhwani is:
 - 500+ GitHub stars for open-source repos.
 
 ## Business Model
-- **Enterprise**: License Dhwani for German businesses (healthcare, education).
+- **Enterprise**: License Dwani for German businesses (healthcare, education).
 - **Partnerships**: Collaborate with German tech firms and universities.
 - **Freemium**: Free basic features; premium for unlimited use.
 
@@ -171,7 +171,7 @@ Unlike Siri or Alexa, Dhwani is:
 - **Sachin Shetty**: Software Engineer (GenAI, full-stack), passionate about accessible voice tech for German speakers.
 
 ## Call to Action
-Join us to bring Dhwani to Anna and millions of German speakers. Let’s make voice technology inclusive, private, and German-first.
+Join us to bring Dwani to Anna and millions of German speakers. Let’s make voice technology inclusive, private, and German-first.
 
 </details> 
 
